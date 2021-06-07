@@ -14,13 +14,24 @@ There is no built-in way to limit consumption yet, but luckily, there is a way t
 
 *"A meaningful interaction happens when an end-user sends a message to your assistant and receives a response. Welcome messages at the beginning of a new conversation are not charged."
 
-Watson Assistant allows webhook calls in three ways. 
+Watson Assistant allows webhook calls in three ways:
 
 1. The PRE webhook is called before Watson Assistant processes any input
 2. The POST webhook is called after Watson Assistant processes any input and before the result is sent back
 3. A webhook that can be called from within any dialogue
 
 Logically we can see here that if we call the right webhook in the right way on the "Welcome" node and either allow or dont allow that communication through, then we can control access (and therefore cost).
+How do we stop that communication through though? There are two ways:
+
+1. Hide the user input field.
+2. Set a context variable in Watson Assistant if the limit has been reached and test for that variable on every node.
+
+Both of these options have benefits and disadvatages and neither ideal.
+
+1. Because this is basicvally just hiding the input field this still allows a hacker or dedicated user to send messages to Watson Assistant if they REALLY want to.
+2. This stops the possibility of hacking but you have to add a context variable test (see below) on EVERY node of your dialogue. Not too bad if you are starting from scratch or have only a few nodes, but this could take some time if you have a lot of nodes already. 
+
+![image of additional context variable check]()
 
 ## High Level Steps
 
@@ -54,7 +65,7 @@ If a user is signed in in some way however, the the session ID can be set by you
 
 ![Image of API and API Calling flow in Node-RED](https://github.com/tim-minter/watson-assistant-utilisation-control/blob/main/simple-flow.png)
 
-7. Now before we buid the actual API code we can do the clever stuff with the Welcome node in Watson Assistant. Open your instance of the Watson Assistant service and go to "My first asssistant" or ceate a new assistant. Then click on My first skill (or create a new skill).
+7. Now before we build the actual API code we can do the clever stuff with the Welcome node in Watson Assistant. Open your instance of the Watson Assistant service and go to "My first asssistant" or ceate a new assistant. Then click on My first skill (or create a new skill).
 8. In the skill, click on Options and then Webooks. In the URL field enter the url to your API created above (https://[addressofyournoderededitor]/apiv1).
 9. Click on the Dialog option. You'll notice the two default nodes are shown in the basic dialogue tree. Select the Welcome node and then the "Customise" option and switch on the Callout to webhooks switch (see below)
 
