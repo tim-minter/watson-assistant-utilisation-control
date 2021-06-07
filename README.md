@@ -54,4 +54,6 @@ If a user is signed in in some way however, the the session ID can be set by you
 
 ![Image of API and API Calling flow in Node-RED](https://github.com/tim-minter/watson-assistant-utilisation-control/blob/main/simple-flow.png)
 
+7. Now before we buid the actual API code we can do the clever stuff with the Welcome node in Watson Assistant. Open your instance of the Watson Assistant service and go the 
+
 [Document being created - please check back in a few days]
