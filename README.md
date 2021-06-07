@@ -10,11 +10,17 @@ or
 * You want to sell your service and need to be able to control costs or sell tiered capacity eg £100 for 50 users, £200 for 200 users etc. 
 
 ## Solution
-Luckily, although there is no built-in way to limit consumption, there is a way to stop billable calls to the Watson Assistant service after a threshold is reached. Watson Assistant allows webhook calls in three ways. 
+There is no built-in way to limit consumption yet, but luckily, there is a way to stop billable calls to the Watson Assistant service after a threshold is reached via one of the webhook options available and the fact that a call to Watson Assistant has to be "meaningful" to be billable. Meaningful is defined as follows:
+
+*"A meaningful interaction happens when an end-user sends a message to your assistant and receives a response. Welcome messages at the beginning of a new conversation are not charged."
+
+Watson Assistant allows webhook calls in three ways. 
 
 1. The PRE webhook is called before Watson Assistant processes any input
 2. The POST webhook is called after Watson Assistant processes any input and before the result is sent back
 3. A webhook that can be called from within any dialogue
+
+Logically we can see here that if we call the right webhook in the right way on the "Welcome" node and either allow or dont allow that communication through, then we can control access (and therefore cost).
 
 ## High Level Steps
 
@@ -38,3 +44,9 @@ If a user is signed in in some way however, the the session ID can be set by you
 7. Get the dialogue to call the API from the inital "Welcome" node in the dialogue
 8. Take action in the dialogue based on the success or failure returned from the API call
 
+## Steps to create this PoC (Proof of Concept)
+1. Sign in to or up for an IBM Cloud account. This PoC can be created using using the free or paid versions of the services available in IBM Cloud. Create a [Watson Assistant](https://cloud.ibm.com/catalog/services/watson-assistant) service in IBM Cloud.
+2. Create a [Node-RED](https://cloud.ibm.com/developer/appservice/create-app?starterKit=59c9d5bd-4d31-3611-897a-f94eea80dc9f&defaultLanguage=undefined) application in IBM Cloud. Node-RED uses a cloudant database to host its data so a free Cloudant service will be created as part of this build. If you already have a free Cloudant instance then you can select that to avoid having to create a new paid service.  
+3. For PoC you may choose not to do this step. Secure the HTTP endpoints for NodeRED [(instructions)](https://nodered.org/docs/user-guide/runtime/securing-node-red) - see HTTP Node Security section. The instructions are minimal and the way you actually have do do this when Node-RED is on the cloud is fairly complex. I will create a separate set of instructions on how to do this soon [link]()
+
+[Document being created - please check back in a few days]
