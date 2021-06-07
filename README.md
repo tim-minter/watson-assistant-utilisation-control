@@ -26,12 +26,12 @@ First some notes on Watson Assistant billing/sessions:
 Watson Assistant can be called via your own code in a custom app, via various services like Facebook messenger or Slack or via an easy to embed "Web Widget". We will concentrate on the web widget way here and use that in the PoC below.
 
 To maintain state and allow for correct billing, be deafult, the web widget creates a unique session ID for each user and that session ID is stored in a cookie on the browser. In ths way you wont get billed twice if the same user (browser) is used to access your chatbot within a month. That perosn can use the chatbot as much as they want and you will get billed for one user only. But this access method is essentially anoymous and because of this fact there is no way to track the same user accross devices or indeed different browsers on the same device.
-If a user is signed in in some way however, the the session ID can be set by you and used accross devices/broswers. In this case you will only be charged for one user no matter what devices or browsers they use. See [here]https://cloud.ibm.com/docs/assistant?topic=assistant-services-information#services-information-user-based-plans for details, and [here]https://www.ibm.com/cloud/watson-assistant/pricing/ for an overview (in the FAQ at the bottom of the page).
+If a user is signed in in some way however, the the session ID can be set by you and used accross devices/broswers. In this case you will only be charged for one user no matter what devices or browsers they use. See [here](https://cloud.ibm.com/docs/assistant?topic=assistant-services-information#services-information-user-based-plans) for details, and [here](https://www.ibm.com/cloud/watson-assistant/pricing/) for an overview (in the FAQ at the bottom of the page).
 
 
-1. Create a [Watson Assistant]https://cloud.ibm.com/catalog/services/watson-assistant service in IBM Cloud
-2. Create a [Node-RED]https://cloud.ibm.com/developer/appservice/create-app?starterKit=59c9d5bd-4d31-3611-897a-f94eea80dc9f&defaultLanguage=undefined application in IBM Cloud (this wil also create a Cloudant service by default that we reuse to host the database we need)
-3. Secure the HTTP endpoints for NodeRED [(instructions)]https://nodered.org/docs/user-guide/runtime/securing-node-red - see HTTP Node Security section
+1. Create a [Watson Assistant](https://cloud.ibm.com/catalog/services/watson-assistant) service in IBM Cloud
+2. Create a [Node-RED](https://cloud.ibm.com/developer/appservice/create-app?starterKit=59c9d5bd-4d31-3611-897a-f94eea80dc9f&defaultLanguage=undefined) application in IBM Cloud (this wil also create a Cloudant service by default that we reuse to host the database we need)
+3. Secure the HTTP endpoints for NodeRED [(instructions)](https://nodered.org/docs/user-guide/runtime/securing-node-red) - see HTTP Node Security section
 4. Create an API in NodeRED 
 5. Create a basic dialogue in Waston Assistant
 6. Connect the "Pre" webhook available in Watson Assistant to the API created above
