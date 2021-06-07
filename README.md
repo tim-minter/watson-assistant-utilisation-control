@@ -1,4 +1,5 @@
 # How to control the utilisation of Watson Assistant 
+(note this is a *bit* of a hack)
 
 ## Problem
 You want to put a Watson Assistant chatbot web widget on a public facing website but: 
@@ -31,7 +32,7 @@ Both of these options have benefits and disadvatages and neither ideal.
 1. Because this is basicvally just hiding the input field this still allows a hacker or dedicated user to send messages to Watson Assistant if they REALLY want to.
 2. This stops the possibility of hacking but you have to add a context variable test (see below) on EVERY node of your dialogue. Not too bad if you are starting from scratch or have only a few nodes, but this could take some time if you have a lot of nodes already. 
 
-![image of additional context variable check]()
+![image of additional context variable check](https://github.com/tim-minter/watson-assistant-utilisation-control/blob/main/context-variable-check.png)
 
 ## High Level Steps
 
