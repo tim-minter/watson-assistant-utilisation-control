@@ -14,7 +14,7 @@ Luckily, although there is no built-in way to limit consumption, there is a way 
 
 1. The PRE webhook is called before Watson Assistant processes any input
 2. The POST webhook is called after Watson Assistant processes any input and before the result is sent back
-3. 
+3. A webhook that can be called from within any dialogue
 
 ## High Level Steps
 
