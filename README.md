@@ -66,7 +66,7 @@ If a user is signed in in some way however, the the session ID can be set by you
 
 ![Image of API and API Calling flow in Node-RED](https://github.com/tim-minter/watson-assistant-utilisation-control/blob/main/simple-flow.png)
 
-7. Now before we build the actual API code we can do the clever stuff with the Welcome node in Watson Assistant. Open your instance of the Watson Assistant service and go to "My first asssistant" or ceate a new assistant. Then click on My first skill (or create a new skill).
+7. Now before we build the actual API code we can do the clever stuff with the Welcome node in Watson Assistant. You can skip step 8 to x if you want by importing a prepared skill located [here](https://github.com/tim-minter/watson-assistant-utilisation-control/blob/main/usage-poc-skill.json). Open your instance of the Watson Assistant service and go to "My first asssistant" or ceate a new assistant. Then click on My first skill (or create a new skill).
 8. In the skill, click on Options and then Webooks. In the URL field enter the url to your API created above (https://[addressofyournoderededitor]/apiv1).
 9. Click on the Dialog option. You'll notice the two default nodes are shown in the basic dialogue tree. Select the Welcome node and then the "Customise" option and switch on the Callout to webhooks switch (see below)
 
