@@ -1,4 +1,5 @@
 # How to control the utilisation of Watson Assistant 
+AKA "IBM Watson Assistant. Limiting the number of MAUs (monthly active users)"
 (note this is a *bit* of a hack)
 
 ## Problem
