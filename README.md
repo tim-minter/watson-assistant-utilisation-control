@@ -27,9 +27,13 @@ Logically we can see here that if we call the right webhook in the right way on 
 How do we stop that communication through though? There are two ways:
 
 1. Hide the user input field. Because this is basically just hiding the input field this still allows a hacker or dedicated user to send messages to Watson Assistant if they REALLY want to.
-2. Set a context variable in Watson Assistant if the limit has been reached and test for that variable in the dialogue. This is a really nice solution if you are able to add a folder under the Welcome node and move all your other nodes to this folder it's a really simple solution. 
+2. Set a context variable in Watson Assistant if the limit has been reached and test for that variable in the dialogue. This is a really nice solution, and if you are able to add a folder under the Welcome node and move all your other nodes to this folder it's a really simple solution. IF you can't or don't want to move your nodes to a top level folder the you can add the test to every node (example shown below) but that could be some considerable work if you already have many nodes and you'd have to remember to do this to EVERY top/first level node.
 
 ![image of additional context variable check](https://github.com/tim-minter/watson-assistant-utilisation-control/blob/main/context-variable-check.png)
+
+This what it would look like if you use the folder method
+
+![Image of the dialogue UI when the folder method is used](https://github.com/tim-minter/watson-assistant-utilisation-control/blob/main/dialogue-structure.png)
 
 ## High Level Steps
 
