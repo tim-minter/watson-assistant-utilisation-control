@@ -26,13 +26,8 @@ Watson Assistant allows webhook calls in three ways:
 Logically we can see here that if we call the right webhook in the right way on the "Welcome" node and either allow or dont allow that communication through, then we can control access (and therefore cost).
 How do we stop that communication through though? There are two ways:
 
-1. Hide the user input field.
-2. Set a context variable in Watson Assistant if the limit has been reached and test for that variable on every node.
-
-Both of these options have benefits and disadvantages and neither is ideal.
-
-1. Because this is basically just hiding the input field this still allows a hacker or dedicated user to send messages to Watson Assistant if they REALLY want to. This is the simplest solution.
-2. This stops the possibility of hacking but you have to add a context variable test (see below) on EVERY node of your dialogue. Not too bad if you are starting from scratch or have only a few nodes, but this could take some time if you have a lot of nodes already. 
+1. Hide the user input field. Because this is basically just hiding the input field this still allows a hacker or dedicated user to send messages to Watson Assistant if they REALLY want to.
+2. Set a context variable in Watson Assistant if the limit has been reached and test for that variable in the dialogue. This is a really nice solution if you are able to add a folder under the Welcome node and move all your other nodes to this folder it's a really simple solution. 
 
 ![image of additional context variable check](https://github.com/tim-minter/watson-assistant-utilisation-control/blob/main/context-variable-check.png)
 
