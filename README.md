@@ -31,7 +31,7 @@ How do we stop that communication through though? There are two ways:
 
 ![image of additional context variable check](https://github.com/tim-minter/watson-assistant-utilisation-control/blob/main/context-variable-check.png)
 
-This what it would look like if you use the folder method
+This is what it would look like if you use the folder method. All your additional nodes would be placed in the "top level" folder just below the Welcome node. In this way, nothing can be called (not even the "Anything Else" node) if the API call has returned false and the $limitReached context varible has been set to false  by that call made in the Welcome node.
 
 ![Image of the dialogue UI when the folder method is used](https://github.com/tim-minter/watson-assistant-utilisation-control/blob/main/dialogue-structure.png)
 
