@@ -81,4 +81,10 @@ Note that this ```webhook_result_usage``` variable (like any variable you set in
 
 ![Welcome node detail](https://github.com/tim-minter/watson-assistant-utilisation-control/blob/main/welcomenodedetail.png)
 
+14. Close the node and add a folder below the Welcome node. Set the **If assistant recognises** value to ```$limitReached==false``` as shown below.
+
+![Folder setting](https://github.com/tim-minter/watson-assistant-utilisation-control/blob/main/foldersetting.png)
+
+15. We now have a dialogue that will call the checkUsage API and enter the folder below that node only if the result is false (and display a welcome message). If the result is true, or anything else, a different message will be displayed and nothing else will happen.
+
 [Document being created - please check back in a few days]
