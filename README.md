@@ -85,6 +85,9 @@ Note that this ```limitReached``` variable (like any variable you set in Watson 
 
 ![Folder setting](https://github.com/tim-minter/watson-assistant-utilisation-control/blob/main/foldersetting.png)
 
-15. We now have a dialogue that will call the checkUsage API and enter the folder below that node only if the result is false (and display a welcome message). If the result is true, or anything else, a different message will be displayed and nothing else will happen.
+15. We have a dialogue that will call the checkUsage API and enter the folder below that node only if the result is false (and display a welcome message). If the result is true, or anything else, a different message will be displayed and nothing else will happen. 
+16. Next we will update the NodeRED flow so that it returns true or false (we cna set this manually for now) so we can test this out. Delete your original NodeRED flow and import [this one](https://github.com/tim-minter/watson-assistant-utilisation-control/blob/main/trueFalseFlow.json). It should like the image below.
+
+![Manually set True False Flow ](https://github.com/tim-minter/watson-assistant-utilisation-control/blob/main/trueFalseFlow.png)
 
 [Document being created - please check back in a few days]
