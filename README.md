@@ -73,4 +73,11 @@ If a user is signed in in some way however, the the session ID can be set by you
 
 ![Image of call out to webhooks switch location](https://github.com/tim-minter/watson-assistant-utilisation-control/blob/main/callout-to-webhooks.png)
 
+10. Back in the Welcome node ensure that the **Return variable** field contains ```webhook_result_usage``` (this can contain whatever variable name you want but you must reference the same name in the fields below) and enter ```$webhook_result_usage.result==true``` in the first **If assistant recognises** field and ```Hello. Usage limit has not been reached. How can I help you?``` in the **Respond with** field.
+11. Add  ```$webhook_result_usage.result==false``` in the second **If assistant recognises** field (you may need to use the **Add response** link to add a new line) and ```Usage limit has been exceeded, please purchase more capacity.``` in the **Respond with** field.
+12. In the third field enter ```anything_else``` and ```Usage limit has been exceeded, please purchase more capacity.``` which catches any other result returned from the API. These lines are shown below.
+Note that this ```webhook_result_usage``` variable (like any variable you set in Watson Assistant) remains accessible (by adding the $ symbol infront of it) to your dialogue for use later.
+
+![Welcome node detail](https://github.com/tim-minter/watson-assistant-utilisation-control/blob/main/welcomenodedetail.png)
+
 [Document being created - please check back in a few days]
