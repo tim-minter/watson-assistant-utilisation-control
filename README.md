@@ -81,7 +81,7 @@ Note that this ```limit_reached``` variable (like any variable you set in Watson
 
 ![Welcome node detail](https://github.com/tim-minter/watson-assistant-utilisation-control/blob/main/welcomenodedetail.png)
 
-14. Close the node and add a folder below the Welcome node. Set the **If assistant recognises** value to ```$limit_reached==false``` as shown below.
+14. Close the node and add a folder below the Welcome node. Set the **If assistant recognises** value to ```$limit_reached.result==false``` as shown below.
 
 ![Folder setting](https://github.com/tim-minter/watson-assistant-utilisation-control/blob/main/foldersetting.png)
 
