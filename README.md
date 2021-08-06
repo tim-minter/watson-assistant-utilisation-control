@@ -73,7 +73,7 @@ If a user is signed in in some way however, the the session ID can be set by you
 
 ![Image of call out to webhooks switch location](https://github.com/tim-minter/watson-assistant-utilisation-control/blob/main/callout-to-webhooks.png)
 
-10. Back in the Welcome node set the values you will send with you API call by setting the **key** and **value** pairs as shown in the image below. ```type="checkUsage"``` and ```customerID="customer1"```). Click **Add parameter** to add a new key value pair if necessary. 
+10. Back in the Welcome node set the values you will send with you API call by setting the **key** and **value** pairs as shown in the image below. ```type="checkUsage"```, ```customer_id="customer1"``` and ```metadata="$metadata"```). Click **Add parameter** to add a new key value pair if necessary. This $metadata context variable is created by Watson Assistant and contains the user_id that the assistant has assigned to the user. 
 11. Ensure that the **Return variable** field contains ```limit_reached``` (this can contain whatever variable name you want but you must reference the same name in the fields below) and enter ```$limit_reached.result==true``` in the first **If assistant recognises** field and ```Hello. Usage limit has not been reached. How can I help you?``` in the **Respond with** field.
 12. Add  ```$limit_reached.result==false``` in the second **If assistant recognises** field (you may need to use the **Add response** link to add a new line) and ```Usage limit has been exceeded, please purchase more capacity.``` in the **Respond with** field.
 13. In the third field enter ```anything_else``` and ```Usage limit has been exceeded, please purchase more capacity.``` which catches any other result returned from the API. These lines are shown below.
@@ -87,7 +87,8 @@ Note that this ```limit_reached``` variable (like any variable you set in Watson
 
 15. We have a dialogue that will call the checkUsage API and enter the folder below that node only if the result is false (and display a welcome message). If the result is true, or anything else, a different message will be displayed and nothing else will happen. 
 16. Next we will update the NodeRED flow so that it returns true or false (we can set this manually for now) so we can test this out. Delete your original NodeRED flow and import [this one](https://github.com/tim-minter/watson-assistant-utilisation-control/blob/main/trueFalseFlow.json). It should look like the image below. Remember to **Deploy** the flow in NodeRED (top right red button). When called, this flow will return **false**. If you'd like to return **true** disconnect the link between the **Set to false** node and **API Response** node and add a connection between the **Set to true** and **API Response** node, and remember to **Deploy** the flow in NodeRED (top right red button). 
-17. To test this out go back to your Watson Assistant and click the **Try it** button at the top right of the page. This should return "Usage limit has been exceeded, please purchase more capacity." Edit the nodeRED flow as above to return **true**
+17. To test this out go back to your Watson Assistant and click the **Try it** button at the top right of the page. This should return "Usage limit has been exceeded, please purchase more capacity." Edit the nodeRED flow as above to return **true** and test again by clicking the **Clear** link at the top off the **Try it out** window.
+18. Thi is all great and now we need to set up the API so it acually logs the customer_ids and user_ids and returns true or false based on counting these up.
 
 ![Manually set True False Flow ](https://github.com/tim-minter/watson-assistant-utilisation-control/blob/main/trueFalseFlow.png)
 
