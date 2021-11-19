@@ -1,7 +1,8 @@
 # How to control the utilisation of Watson Assistant 
 AKA "IBM Watson Assistant. Limiting the number of MAUs (monthly active users)"
 
-(note this is a *bit* of a hack)
+Note this is a *bit* of a hack.
+Note the instructions are not quite complete yet so read through them first to make sure they are of use to you as they stand today. Although we create an API we can call, we don't get to the detail of acting on the database and returning real data yet.
 
 ## Problem
 You want to put a Watson Assistant chatbot web widget on a public facing website but: 
@@ -93,4 +94,4 @@ Note that this ```limit_reached``` variable (like any variable you set in Watson
 
 18. This is all great and now we need to set up the API so it actually logs the customer_ids and user_ids and returns true or false based on counting these up. 
 
-[Document being created - please check back in a few days]
+Next steps TBC
